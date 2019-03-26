@@ -1,3 +1,9 @@
+---
+title:  "Writeup: stack0"
+date:   2019-03-26 09:00:00
+categories: writeup 
+layout: post
+---
 # stack0
 ###### Writeup by Tim Winters
 
