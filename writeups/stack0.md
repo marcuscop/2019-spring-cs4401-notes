@@ -3,9 +3,11 @@ title:  "Writeup: stack0"
 date:   2019-03-26 09:00:00
 categories: writeup 
 layout: post
+author: Tim Winters
 ---
-# stack0
-###### Writeup by Tim Winters
+
+The problem is this challenge is a simple one. `modified` is set to `0`, yet is checked on line 15 to be something else. A standard buffer overflow.
+
 
 ```c
 #include <stdlib.h>
@@ -31,7 +33,6 @@ int main(int argc, char **argv)
   }
 }
 ```
-The problem is this challenge is a simple one. `modified` is set to `0`, yet is checked on line 15 to be something else. A standard buffer overflow.
 
 The vulnerability is with `gets`, which reads input from standard in, but does no bounds checking. We can use this to write past the memory region allocated to `buffer`, and overwrite the value of `modified`. To determine how many bytes we need to write we must look at this disassembly code. 
 
