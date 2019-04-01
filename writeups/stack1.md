@@ -3,9 +3,10 @@ title:  "Writeup: stack1"
 date:   2019-03-26 09:00:00
 categories: writeup 
 layout: post
+author: Tim Winters
 ---
-# stack1
-###### Writeup by Tim Winters
+
+The stack1 challenge is very similar to stack0. We have a variable `modified` that is set to 0, but is checked against a non-zero value.  Examining the code we see a call to `strcpy` thaat writes the value of environment variable `GREENIE` into `buffer`. We will use this unchecked call to exploit the code.
 
 ```c
 #include <stdlib.h>
@@ -41,9 +42,7 @@ int main(int argc, char **argv)
 
 }
 ```
-stack1 one is very similar to stack0. We have a variable `modified` that is set to 0, but is checked against a non-zero value. 
 
-Examining the code we see a call to `strcpy` thaat writes the value of environment variable `GREENIE` into `buffer`. We will use this unchecked call to exploit the code.
 
 Let's start by determining the addresses of our variables.
 
